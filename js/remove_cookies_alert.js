@@ -1,3 +1,12 @@
+/* functions */
+String.prototype.includesFromArr = (arr)=> {
+    for (let i = 0; i < arr.length; i++) {
+        if (this.includes(arr[i]))
+            return true;
+    }
+    return false;
+}
+
 const createSelectorString = (keywords)=> {
     let str = "";
 
@@ -21,20 +30,31 @@ const createSelectorString = (keywords)=> {
     return str.slice(0, -1); // remove last comma
 }
 
-const keywords = ["cookie", "ccpa", "gdpr"];
-const selectorString = createSelectorString(keywords);
-console.log("Mark Zuckerberg sends his regards.");
-
 const removeCookieAlert = ()=> {
     $(selectorString).remove();
 };
 
+
+/* variables */
+const keywords = ["cookie", "ccpa", "gdpr"];
+const selectorString = createSelectorString(keywords);
+let cookiePage = false; // cookie page flag
+console.log("Mark Zuckerberg sends his regards.");
+
+
+/* on doc ready / on window load */
 $(function(){
+    if ((location.href).includesFromArr(keywords)) {
+        cookiePage = true;
+        return;
+    }
+
     setTimeout(function() {
         removeCookieAlert();
     }, 500);
 });
 
 $(window).on('load', function () {
-    removeCookieAlert();
+    if (!cookiePage)
+        removeCookieAlert();
 })
