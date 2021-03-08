@@ -1,5 +1,5 @@
 body {
-    width: 100px;
+    width: 150px;
 }
 
 .container {
@@ -10,8 +10,12 @@ body {
     font-family: Calibri, serif;
 }
 
+#global_switch {
+    margin-top: 24px;
+}
+
 .container label {
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 /* The switch - the box around the slider */

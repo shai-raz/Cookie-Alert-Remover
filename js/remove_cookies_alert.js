@@ -1,15 +1,4 @@
 /* functions */
-Object.defineProperty(String.prototype, 'includesFromArr', {
-    value: function (arr) {
-        console.log(this.toString())
-        for (let i = 0; i < arr.length; i++) {
-            if (this.includes(arr[i]))
-                return true;
-        }
-        return false;
-    }
-})
-
 const createSelectorString = (keywords) => {
     let str = "";
 
@@ -39,7 +28,7 @@ const removeCookieAlert = () => {
 
 
 /* variables */
-const keywords = ["cookie", "ccpa", "gdpr"];
+const keywords = ["cookie", "ccpa", "gdpr", "onetrust"];
 const selectorString = createSelectorString(keywords);
 let cookiePage = false; // cookie page flag
 console.log("Mark Zuckerberg sends his regards.");
